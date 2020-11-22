@@ -9,7 +9,7 @@ ffmpeg -f concat -i mylist.txt -c:a copy output.mp4
 #Add sub.ass subtitles to input.mp4 video
 ffmpeg -i input.mp4 -vf "ass=sub.ass" result.mp4
 
-*note: convert srt to ass first via: ffmpeg -i subtitles.srt subtitles.ass
+#note: convert srt to ass first via: ffmpeg -i subtitles.srt subtitles.ass
 ====================================================
 #Crop 20 pixels from the top, and 20 from the bottom:
 
