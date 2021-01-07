@@ -21,6 +21,10 @@ ffmpeg -i in.mp4 -filter:v "crop=in_w:in_h-40" -c:a copy out.mp4
 
 ffmpeg -i in.mp4 -filter:v "crop=in_w:in_h-40:0:out_h" -c:a copy out.mp4
 
+#Crop 40 pixels only from the bottom
+
+ffmpeg -i input.mp4 -filter_complex "[0:v]crop=in_w:in_h-40:0:0[cropped]" -map "[cropped]" output.mp4
+
 #====================================================
 # Cut 8 seconds of the video starting from 3rd second and save it as a file 
 
