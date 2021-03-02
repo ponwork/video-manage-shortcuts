@@ -4,26 +4,26 @@ echo file file1.mp4 >  mylist.txt
 echo file file2.mp4 >> mylist.txt
 echo file file3.mp4 >> mylist.txt
 
-#Concatenate Files
+# Concatenate Files
 
 ffmpeg -f concat -i mylist.txt -c:a copy output.mp4
 
-#Add sub.ass subtitles to input.mp4 video
+# Add sub.ass subtitles to input.mp4 video
 ffmpeg -i input.mp4 -vf "ass=sub.ass" result.mp4
 
-#note: convert srt to ass first via: 
+# note: convert srt to ass first via: 
 
 ffmpeg -i subtitles.srt subtitles.ass
 
-#Crop 20 pixels from the top, and 20 from the bottom:
+# Crop 20 pixels from the top, and 20 from the bottom:
 
 ffmpeg -i in.mp4 -filter:v "crop=in_w:in_h-40" -c:a copy out.mp4
 
-#Crop 40 pixels only from the top
+# Crop 40 pixels only from the top
 
 ffmpeg -i in.mp4 -filter:v "crop=in_w:in_h-40:0:out_h" -c:a copy out.mp4
 
-#Crop 40 pixels only from the bottom
+# Crop 40 pixels only from the bottom
 
 ffmpeg -i input.mp4 -filter_complex "[0:v]crop=in_w:in_h-40:0:0[cropped]" -map "[cropped]" output.mp4
 
@@ -39,11 +39,11 @@ ffmpeg -i video.mp4 -f mp3 -vn music.mp3
 
 ffmpeg -i input_file out.srt
 
-# strip audio stream away from video
+# Strip audio stream away from video
 
 ffmpeg -i INPUT.mp4 -codec copy -an OUTPUT.mp4
 
-# combine the two streams together (new audio with originally exisiting video)
+# Combine the two streams together (new audio with originally exisiting video)
 
 ffmpeg -i INPUT.mp4 -i AUDIO.wav -shortest -c:v copy -c:a aac -b:a 256k OUTPUT.mp4
 
