@@ -11,7 +11,7 @@ ffmpeg -f concat -i mylist.txt -c:a copy output.mp4
 # Add sub.ass subtitles to input.mp4 video
 ffmpeg -i input.mp4 -vf "ass=sub.ass" result.mp4
 
-## note: convert srt to ass first via: 
+### **note**: convert srt to ass first via: 
 
 ffmpeg -i subtitles.srt subtitles.ass
 
@@ -61,7 +61,7 @@ ffmpeg -loop 1 -i image.png -i music.mp3 -vf "scale='min(1280,iw)':-2,format=yuv
 
 # Downloading coub for full length of audio
 
-## https://www.npmjs.com/package/coub-dl)
+### https://www.npmjs.com/package/coub-dl
 
 coub-dl -i https://coub.com/view/135nqc -o out.mp4 --loop 999
 
@@ -84,7 +84,7 @@ youtube-dl --write-sub --sub-lang=en --convert-subs=ass --skip-download --output
 
 for i in *.vtt; do ffmpeg -i "$i" "${i%.*}.ass"; done
 
-rm *.vtt
+rm \*.vtt
 
 youtube-dl -f 18 --output "%(title)s.%(ext)s" -i PLpCqYR5zVhar6AngZd1RIG2_5sTMZsHMX
 
