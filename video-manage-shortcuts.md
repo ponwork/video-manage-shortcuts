@@ -57,7 +57,7 @@ ffmpeg -i /storage/emulated/0/ffvid/frameCount.mp4 -vf reverse -af areverse reve
 
 # Create video as a static picture + mp3
 
-ffmpeg -loop 1 -y -i image.jpg -i sound.mp3 -shortest -acodec copy -vcodec mjpeg result.mp4
+ffmpeg -r 1 -loop 1 -i image.jpg -i audio.mp3 -acodec copy -r 1 -shortest -vf scale=1280:720 result.mp4
 
 # Downloading coub for full length of audio
 
