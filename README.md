@@ -1,5 +1,3 @@
-# youtube-dl-shortcuts
-
 # Create File List
 
 echo file file1.mp4 >  mylist.txt 
