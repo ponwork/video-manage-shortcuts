@@ -59,6 +59,10 @@ ffmpeg -i /storage/emulated/0/ffvid/frameCount.mp4 -vf reverse -af areverse reve
 
 ffmpeg -loop 1 -i image.png -i music.mp3 -vf "scale='min(1280,iw)':-2,format=yuv420p" -c:v libx264 -preset medium -profile:v main -c:a aac -shortest -movflags +faststart output.mp4
 
+# Create a silent mp3 for 1 second
+
+ffmpeg -f lavfi -i anullsrc=r=44100:cl=mono -t 1 -q:a 9 -acodec libmp3lame out.mp3
+
 # Downloading coub for full length of audio
 
 ### https://www.npmjs.com/package/coub-dl
