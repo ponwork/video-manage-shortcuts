@@ -49,7 +49,11 @@ ffmpeg -i INPUT.mp4 -i AUDIO.wav -shortest -c:v copy -c:a aac -b:a 256k OUTPUT.m
 
 # Reverse video only:
 
-ffmpeg -i /storage/emulated/0/ffvid/frameCount.mp4 -vf reverse reversed.mp4
+ffmpeg -i input.mp4 -vf reverse reversed.mp4
+
+# Create mosaic video (two vertical):
+
+ffmpeg –i left.mp4 –i right.mp4 –filter_complex hstack=inputs=2 mosaic.mp4
 
 # Reverse audio and video:
 
