@@ -86,11 +86,15 @@ youtube-dl --list-subs URL
 
 youtube-dl --write-sub --sub-lang=en --convert-subs=srt --skip-download URL 
 
+# Convert all the FLAC files in the current directory to the MP3
+
+for i in \*.flac; do ffmpeg -i "$i" -ab 320k -map_metadata 0 -id3v2_version 3 "${i%.flac}.mp3"; done
+
 # Download youtube playlist with en subs
 
 youtube-dl --write-sub --sub-lang=en --convert-subs=ass --skip-download --output "%(title)s.%(ext)s" -i PLpCqYR5zVhaq7k4KJuRXMcjD7PhFHenDL
 
-for i in *.vtt; do ffmpeg -i "$i" "${i%.*}.ass"; done
+for i in \*.vtt; do ffmpeg -i "$i" "${i%.vtt}.ass"; done
 
 rm \*.vtt
 
