@@ -101,3 +101,7 @@ rm \*.vtt
 youtube-dl -f 18 --output "%(title)s.%(ext)s" -i PLpCqYR5zVhar6AngZd1RIG2_5sTMZsHMX
 
 for i in *.mp4; do ffmpeg -y -i "$i" -vf "ass=${i%%.*}.en.ass" "${i%.*}.en.sub.mp4"; done 
+
+# Scale output
+
+-vf "scale=iw*0.5:ih*0.5"
