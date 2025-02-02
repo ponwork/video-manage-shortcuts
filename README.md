@@ -105,3 +105,11 @@ for i in *.mp4; do ffmpeg -y -i "$i" -vf "ass=${i%%.*}.en.ass" "${i%.*}.en.sub.m
 # Scale output
 
 -vf "scale=iw*0.5:ih*0.5"
+
+# Split video into 10 mins junks
+
+ffmpeg -i invid.mp4 -threads 3 \
+       -vcodec copy -f segment -segment_time 10:00 \
+       -reset_timestamps 1 \
+       cam_out_h264_%02d.mp4
+
